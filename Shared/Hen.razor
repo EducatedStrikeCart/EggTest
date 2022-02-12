@@ -1,0 +1,16 @@
+﻿@using BlazorSandbox.Services
+@inject EggService EggService
+
+<div>
+	<h3>Hen</h3>
+<button @onclick="TakeAnEgg">Take an egg</button>
+</div>
+
+
+@code {
+	public async Task TakeAnEgg()
+	{
+		await EggService.AddEgg();
+	}
+}
+

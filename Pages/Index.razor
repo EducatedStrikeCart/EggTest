@@ -1,0 +1,15 @@
+﻿@page "/"
+@using BlazorSandbox.Services
+
+@inject EggService EggService
+
+<h1>
+	Eggs!
+</h1>
+<div class="d-flex flex-row justify-content-around">
+	<Hen />
+	<Basket />
+</div>
+@code {
+
+}

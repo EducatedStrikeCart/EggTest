@@ -1,0 +1,25 @@
+﻿@using BlazorSandbox.Services
+@inject EggService EggService
+@implements IDisposable
+
+<div>
+	<h3>Basket</h3>
+	Eggs: @Eggs
+</div>
+
+
+@code {
+	public int Eggs { get; set; }
+
+	protected override async Task OnInitializedAsync()
+	{
+		Eggs = await EggService.GetEggs();
+		EggService.OnChange += StateHasChanged;
+
+	}
+
+	public void Dispose()
+	{
+		EggService.OnChange -= StateHasChanged;
+	}
+}
